@@ -34,7 +34,7 @@ If `${CLAUDE_PLUGIN_ROOT}` is not set in this environment, locate the `notary` p
    Created:   inbox/, notes/, templates/, index.md, log.md, notary.config.md, notes/2025-06-02-acme-q3-roadmap-meeting.md
    Refreshed: templates/inbox-capture.md, templates/meeting.md
    Skipped:   (none)
-   Next: edit notary.config.md to set your domains and types, then drop captures into inbox/ and run the inbox-processor skill.
+   Next: edit notary.config.md to set your domains and types, then drop captures into inbox/ and run the processing-notes skill.
    ```
 
 ## Hard rules

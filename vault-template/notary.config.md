@@ -39,6 +39,6 @@ the skills themselves stay the same.
 ## How it's used
 
 1. Drop a raw note into `inbox/` (optionally via a template in `templates/`).
-2. Run the **inbox-processor** skill — it reads this config, enriches the note,
+2. Run the **processing-notes** skill — it reads this config, enriches the note,
    files it to `notes/`, and updates `index.md` and `log.md`.
-3. Run the **vault-linter** skill periodically to keep everything consistent.
+3. Run the **linting-notes** skill periodically to keep everything consistent.

@@ -1,5 +1,5 @@
 ---
-name: inbox-processor
+name: processing-notes
 description: |
   Process raw captures in a Notary Obsidian vault. Use when the user asks to
   process the inbox, file their notes, clear the inbox, or enrich captured notes

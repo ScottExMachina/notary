@@ -13,10 +13,10 @@ See [docs/idea.md](docs/idea.md) for the design philosophy this implements.
 
 ## What you get
 
-- **`inbox-processor`** skill — reads raw captures in `inbox/`, enriches frontmatter
+- **`processing-notes`** skill — reads raw captures in `inbox/`, enriches frontmatter
   (type, domain, summary, tags), adds a `## Summary`, preserves raw content under
   `## Notes`, files the note to `notes/`, and updates `index.md` + `log.md`.
-- **`vault-linter`** skill — keeps filed notes consistent: fixes casing/typos
+- **`linting-notes`** skill — keeps filed notes consistent: fixes casing/typos
   silently, regenerates missing summaries and thin tags (logged), and asks before
   resolving genuine ambiguity. Never touches your raw content.
 - **`/notary-setup`** command — idempotently scaffolds a new vault or syncs the
@@ -58,9 +58,9 @@ Later, from GitHub, point `marketplace add` at the repo URL instead.
 1. **Capture** — drop a raw note into `inbox/`. Optionally start from a template in
    `templates/` (see below). Fill `type`/`domain` if you know them; otherwise leave
    them for the processor.
-2. **Process** — ask Claude to "process my inbox." The `inbox-processor` skill
+2. **Process** — ask Claude to "process my inbox." The `processing-notes` skill
    enriches each note, files it to `notes/`, and updates the index and log.
-3. **Lint** — periodically ask Claude to "lint the vault." The `vault-linter` skill
+3. **Lint** — periodically ask Claude to "lint the vault." The `linting-notes` skill
    cleans up frontmatter and flags anything ambiguous.
 
 ## Customizing (the whole point)
@@ -99,7 +99,7 @@ plugin version bump, and `/notary-setup` will sync them into your vaults.
 
 ```
 .claude-plugin/   plugin.json + marketplace.json
-skills/           inbox-processor, vault-linter
+skills/           processing-notes, linting-notes
 commands/         notary-setup
 vault-template/   mirror of an installed vault (the source of truth for setup)
 docs/idea.md      design philosophy

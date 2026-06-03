@@ -1,5 +1,5 @@
 ---
-name: vault-linter
+name: linting-notes
 description: |
   Lint and repair filed notes in a Notary Obsidian vault. Use when the user asks
   to lint the vault, clean up notes, fix frontmatter, check note hygiene, or do a
