@@ -12,9 +12,9 @@ tags: [acme-corp, john-smith, sarah-lee, roadmap, resourcing, sow]
 
 ## Summary
 - Q3 roadmap reviewed; the August resourcing gap is the primary risk
-- SOW renewal must close before end of June #follow-up
-- Offshore delivery model decision deferred to next meeting #follow-up
+- Offshore delivery model decision deferred to next meeting
 - John Smith flagged budget sensitivity around change orders
+- [ ] SOW renewal must close before end of June
 
 ## Notes
 Met with John Smith and Sarah Lee at Acme to review the Q3 roadmap.

@@ -21,6 +21,7 @@ If `${CLAUDE_PLUGIN_ROOT}` is not set in this environment, locate the `notary` p
    - `index.md` — copy from the template only if it does not already exist.
    - `log.md` — copy from the template only if it does not already exist.
    - `notary.config.md` — copy from the template **only if it does not already exist**. This file is user-owned customization; an existing one is never touched.
+   - `follow-ups.md` — copy from the template only if it does not already exist. It's a Dataview view the user may tweak, so never clobber an edited one.
 
 3. **Sync plugin-owned files (create or refresh):**
    - Everything under `templates/` in the mirror is plugin-owned. Copy each template file in; if it already exists, refresh it to the bundled version (these are not user content). Report any that changed.
@@ -31,7 +32,7 @@ If `${CLAUDE_PLUGIN_ROOT}` is not set in this environment, locate the `notary` p
 5. **Report a summary** of what was created, what already existed (skipped), and what was refreshed. Example:
    ```
    Notary vault ready in /Users/scott/vault
-   Created:   inbox/, notes/, templates/, index.md, log.md, notary.config.md, notes/2025-06-02-acme-q3-roadmap-meeting.md
+   Created:   inbox/, notes/, templates/, index.md, log.md, notary.config.md, follow-ups.md, notes/2025-06-02-acme-q3-roadmap-meeting.md
    Refreshed: templates/inbox-capture.md, templates/meeting.md
    Skipped:   (none)
    Next: edit notary.config.md to set your domains and types, then drop captures into inbox/ and run the processing-notes skill.

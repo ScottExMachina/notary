@@ -10,7 +10,6 @@ tag_conventions:
   organizations: hyphenated-natural-name
   topics: descriptive-hyphenated
 summary_max_bullets: 5
-followup_marker: "#follow-up"
 ---
 
 # Notary Config
@@ -33,8 +32,11 @@ the skills themselves stay the same.
   - *organizations* → hyphenated natural name (e.g. `acme-corp`)
   - *topics* → descriptive and hyphenated (e.g. `operating-model`)
 - **summary_max_bullets** — how many bullets the generated `## Summary` may have.
-- **followup_marker** — the inline tag used to flag actions and deadlines
-  (e.g. `#follow-up`). Used inside `## Summary` bullets, not in frontmatter.
+
+Follow-ups aren't a tag. When the processor writes the `## Summary`, the note's
+points come first as plain `-` bullets, then anything that reads like a todo or
+deadline is listed as an open checkbox `- [ ]` at the end. See `follow-ups.md` for
+the running list of open items across the vault.
 
 ## How it's used
 
@@ -42,3 +44,4 @@ the skills themselves stay the same.
 2. Run the **processing-notes** skill — it reads this config, enriches the note,
    files it to `notes/`, and updates `index.md` and `log.md`.
 3. Run the **linting-notes** skill periodically to keep everything consistent.
+4. Open `follow-ups.md` to see every open `- [ ]` item across your notes.

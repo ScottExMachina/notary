@@ -31,7 +31,6 @@ Check for `notary.config.md` in the current working directory (the vault root).
    - `folders.inbox` and `folders.notes` — folder names (default `inbox`, `notes`)
    - `tag_conventions` — formatting rules for people / organizations / topics
    - `summary_max_bullets` — max bullets in the `## Summary` section (default 5)
-   - `followup_marker` — the inline follow-up tag (default `#follow-up`)
 2. Read `index.md` if it exists. The tag headings in it are your **preferred tag vocabulary**. Always prefer an existing tag over coining a near-duplicate (e.g. reuse `acme-corp`; don't create `acme`).
 
 If `inbox/` is empty, report "Inbox is empty — nothing to process" and stop.
@@ -50,9 +49,7 @@ For every `.md` file in the inbox folder, in filename order:
    - Topics → descriptive, hyphenated
    - Flat array, no namespacing.
 6. **`summary`** (frontmatter) — write one scannable sentence capturing the note's point.
-7. **`## Summary` section** — insert at the top of the body, above everything else, with up to `summary_max_bullets` tight bullets:
-   - Convert every `- [ ]` checkbox in the raw content into a bullet ending with the `followup_marker`.
-   - Mark other clear action/commitment/deadline signals with the `followup_marker` inline.
+7. **`## Summary` section** — insert at the top of the body, above everything else, with up to `summary_max_bullets` bullets. Write the note's key points as plain `-` bullets first. Then, below them, list anything that reads like a todo, action, commitment, or deadline — including any `- [ ]` checkbox already in the raw content — as open checkbox bullets `- [ ]`. Plain bullets always come first; all checkbox bullets group together at the end. The checkbox is the only signal; don't add any tag or marker.
 8. **Preserve raw content** unchanged under a `## Notes` heading below the summary. Never edit, summarize over, or drop the original text.
 9. **Move** the file from `inbox/` to `notes/` (move — do not copy then delete, and do not leave a duplicate in inbox). Keep the filename unless it collides in `notes/`; if it collides, append `-2`, `-3`, etc.
 
@@ -69,7 +66,7 @@ tags: [acme-corp, john-smith, roadmap]
 
 ## Summary
 - Tight bullet capturing a key point
-- Action or deadline surfaced #follow-up
+- [ ] Action or deadline to track
 
 ## Notes
 [original raw content, untouched]
@@ -121,9 +118,9 @@ tags: [acme-corp, john-smith, sarah-lee, roadmap, resourcing, sow]
 ---
 
 ## Summary
-- Q3 roadmap reviewed; August resourcing gap is the primary risk
-- Close SOW renewal before end of June #follow-up
-- Offshore delivery decision deferred to next meeting #follow-up
+- Q3 roadmap reviewed; the August resourcing gap is the primary risk
+- Offshore delivery decision deferred to next meeting
+- [ ] Close SOW renewal before end of June
 
 ## Notes
 Met with John Smith and Sarah Lee at Acme about the Q3 roadmap.

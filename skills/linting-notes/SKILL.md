@@ -25,7 +25,7 @@ Check for `notary.config.md` in the current working directory (the vault root).
 
 ## Step 1 — Load context
 
-Read `notary.config.md` frontmatter for the valid `types`, valid `domains`, `tag_conventions`, `summary_max_bullets`, `followup_marker`, and `folders.notes`. Read `index.md` for the established tag vocabulary.
+Read `notary.config.md` frontmatter for the valid `types`, valid `domains`, `tag_conventions`, `summary_max_bullets`, and `folders.notes`. Read `index.md` for the established tag vocabulary.
 
 ## Step 2 — Check every note in `notes/`
 
@@ -37,10 +37,12 @@ For each `.md` file, classify each issue into one of three tiers and act accordi
 - Unambiguous typos that map to exactly one valid value — `delivry` → `client-delivery`, `clientdelivery` → `client-delivery`.
 - Date reformatting to `YYYY-MM-DD` when the intended date is unambiguous.
 - Tag normalization to the convention casing/hyphenation (e.g. `Acme Corp` → `acme-corp`) when it clearly maps to an existing index tag.
+- Legacy `#follow-up` markers — if a `## Summary` bullet ends with `#follow-up`, convert it to an open checkbox `- [ ]` and drop the tag.
+- Summary ordering — move any `- [ ]` checkbox bullets below the plain `-` bullets so all checkboxes group at the end of `## Summary`.
 
 ### Auto-fix and log
 
-- **Missing or empty `## Summary`** — regenerate from the note's `## Notes` content (≤ `summary_max_bullets` bullets, follow-up signals marked with `followup_marker`).
+- **Missing or empty `## Summary`** — regenerate from the note's `## Notes` content (≤ `summary_max_bullets` bullets; plain `-` points first, then any todo/action/deadline as open checkbox bullets `- [ ]` at the end).
 - **Missing or empty frontmatter `summary`** — generate a one-sentence summary.
 - **Missing or thin `tags`** — add tags from the `index.md` vocabulary where you're confident they apply, following `tag_conventions`.
 

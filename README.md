@@ -75,7 +75,6 @@ tag_conventions:
   organizations: hyphenated-natural-name
   topics: descriptive-hyphenated
 summary_max_bullets: 5
-followup_marker: "#follow-up"
 ```
 
 A personal vault might use `domains: [creative, home, learning, finance]`. The
@@ -94,6 +93,16 @@ To use them in Obsidian: Settings → Templates → set the template folder to
 
 This folder is the home for future templates — add files here, ship them with a
 plugin version bump, and `/notary-setup` will sync them into your vaults.
+
+## Follow-ups
+
+There's no special tag for follow-ups. When `processing-notes` writes the
+`## Summary`, the note's points come first as plain `-` bullets, then anything that
+reads like a todo or deadline is listed as an open checkbox `- [ ]` at the end.
+`follow-ups.md` at the vault root runs a
+[Dataview](https://github.com/blacksmithgu/obsidian-dataview) query that lists
+every unchecked item across your notes; tick one off in its source note and it
+drops from the list. Requires the Dataview community plugin.
 
 ## Repo layout
 
