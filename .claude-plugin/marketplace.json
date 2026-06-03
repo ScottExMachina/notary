@@ -1,0 +1,20 @@
+{
+  "name": "notary",
+  "description": "Marketplace for the Notary Obsidian work-vault plugin.",
+  "owner": {
+    "name": "ScottExMachina",
+    "email": "287039425+ScottExMachina@users.noreply.github.com"
+  },
+  "plugins": [
+    {
+      "name": "notary",
+      "description": "Turn an Obsidian vault into a low-friction work ledger, maintained by Claude Code skills.",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "ScottExMachina",
+        "email": "287039425+ScottExMachina@users.noreply.github.com"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "notary",
+  "description": "Turn an Obsidian vault into a low-friction work ledger: capture raw notes, let Claude enrich and file them, and keep a tag index and operations log. Bundles an inbox processor, a vault linter, and a setup command.",
+  "version": "0.1.0",
+  "author": {
+    "name": "ScottExMachina",
+    "email": "287039425+ScottExMachina@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "obsidian",
+    "knowledge-management",
+    "notes",
+    "pkm",
+    "vault",
+    "skills"
+  ]
+}
