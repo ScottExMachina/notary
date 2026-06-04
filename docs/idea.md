@@ -73,13 +73,13 @@ tags: [acme-corp, john-smith, sarah-lee, roadmap, resourcing]
 
 ## Tagging Conventions
 
-**People** — `firstname-lastname` (e.g., `john-smith`, `sarah-lee`)
+**People** — `firstname-lastname` (e.g., `john-smith`, `sarah-lee`). Tag everyone.
 
-**Organizations/Entities** — natural name, hyphenated (e.g., `acme-corp`, `deloitte`)
+**Organizations/Entities** — natural name, hyphenated (e.g., `acme-corp`, `deloitte`). Tag every org.
 
-**Topics** — descriptive, hyphenated (e.g., `roadmap`, `sow`, `operating-model`)
+**Topics** — descriptive, hyphenated (e.g., `roadmap`, `sow`, `operating-model`). Capped per note at `max_topic_tags` (default 5); keep the most durable, reusable topics and let full-text search cover the rest.
 
-Inline follow-up signals use `#follow-up` directly in bullet text — not as frontmatter tags.
+Follow-ups are not tags. Action items live as open `- [ ]` checkboxes in a dedicated `## Follow-ups` section — no `#follow-up` marker.
 
 ---
 
@@ -96,9 +96,11 @@ tags: [acme-corp, john-smith, sarah-lee, roadmap, resourcing, sow]
 
 ## Summary
 - Acme reviewing Q3 roadmap; August resourcing gap is primary risk
-- SOW renewal must close before end of June #follow-up
-- Offshore delivery model decision deferred to next meeting #follow-up
 - John Smith flagged budget sensitivity around change orders
+
+## Follow-ups
+- [ ] SOW renewal must close before end of June
+- [ ] Offshore delivery model decision deferred to next meeting
 
 ## Notes
 [raw capture, transcript, or unprocessed content below this line]
@@ -133,12 +135,11 @@ tags: [acme-corp, john-smith, sarah-lee, roadmap, resourcing, sow]
 - Infer `domain` from context only if not already set in frontmatter
 - Extract all people mentioned → `firstname-lastname` tags, matching existing index tags where possible
 - Extract all organizations/clients mentioned → entity tags, matching existing index tags where possible
-- Extract key topics → topic tags, matching existing index tags where possible
+- Extract key topics → topic tags (at most `max_topic_tags`, default 5), matching existing index tags where possible
 - Write one-sentence `summary` for frontmatter
-- Insert `## Summary` at top of note body with up to 5 tight bullets
-  - Surface `- [ ]` checkbox items from raw content as bullets with `#follow-up`
-  - Mark other action signals with `#follow-up` inline
-- Preserve all raw content under `## Notes` below the summary
+- Insert `## Summary` at top of note body with up to 5 tight bullets — summary points only
+- Add a `## Follow-ups` section directly below it listing every todo/action/deadline (including raw `- [ ]` items) as open `- [ ]` checkboxes; the checkbox is the only signal (no `#follow-up`). Omit the section when there are no action items
+- Preserve all raw content under `## Notes` below the follow-ups
 - Move note from `/inbox` to `/notes` (move, not copy/delete)
 - Update `index.md` — add new note reference under each relevant tag, create tag entry if it doesn't exist
 - Append run summary to `log.md` — timestamp, notes processed, files moved, tags added, any warnings

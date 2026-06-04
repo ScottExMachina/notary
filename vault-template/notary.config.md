@@ -10,6 +10,7 @@ tag_conventions:
   organizations: hyphenated-natural-name
   topics: descriptive-hyphenated
 summary_max_bullets: 5
+max_topic_tags: 5
 ---
 
 # Notary Config
@@ -32,11 +33,15 @@ the skills themselves stay the same.
   - *organizations* → hyphenated natural name (e.g. `acme-corp`)
   - *topics* → descriptive and hyphenated (e.g. `operating-model`)
 - **summary_max_bullets** — how many bullets the generated `## Summary` may have.
+- **max_topic_tags** — the cap on *topic* tags per note. Every person and
+  organization is always tagged; topics are limited to the most durable, reusable
+  ones up to this number, and full-text search covers the rest. Defaults to 5.
 
-Follow-ups aren't a tag. When the processor writes the `## Summary`, the note's
-points come first as plain `-` bullets, then anything that reads like a todo or
-deadline is listed as an open checkbox `- [ ]` at the end. See `follow-ups.md` for
-the running list of open items across the vault.
+Follow-ups aren't a tag. When the processor writes a note, summary points go in
+`## Summary` as plain `-` bullets, and anything that reads like a todo or deadline
+goes in a `## Follow-ups` section right below it as an open checkbox `- [ ]`. The
+checkbox is the only signal — no `#follow-up` tag. See `follow-ups.md` for the
+running list of open items across the vault.
 
 ## How it's used
 

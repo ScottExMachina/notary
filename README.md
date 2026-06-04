@@ -14,8 +14,9 @@ See [docs/idea.md](docs/idea.md) for the design philosophy this implements.
 ## What you get
 
 - **`processing-notes`** skill — reads raw captures in `inbox/`, enriches frontmatter
-  (type, domain, summary, tags), adds a `## Summary`, preserves raw content under
-  `## Notes`, files the note to `notes/`, and updates `index.md` + `log.md`.
+  (type, domain, summary, tags), adds a `## Summary` and a `## Follow-ups` section,
+  preserves raw content under `## Notes`, files the note to `notes/`, and updates
+  `index.md` + `log.md`.
 - **`linting-notes`** skill — keeps filed notes consistent: fixes casing/typos
   silently, regenerates missing summaries and thin tags (logged), and asks before
   resolving genuine ambiguity. Never touches your raw content.
@@ -75,6 +76,7 @@ tag_conventions:
   organizations: hyphenated-natural-name
   topics: descriptive-hyphenated
 summary_max_bullets: 5
+max_topic_tags: 5
 ```
 
 A personal vault might use `domains: [creative, home, learning, finance]`. The
@@ -96,9 +98,10 @@ plugin version bump, and `/notary-setup` will sync them into your vaults.
 
 ## Follow-ups
 
-There's no special tag for follow-ups. When `processing-notes` writes the
-`## Summary`, the note's points come first as plain `-` bullets, then anything that
-reads like a todo or deadline is listed as an open checkbox `- [ ]` at the end.
+There's no special tag for follow-ups. When `processing-notes` writes a note,
+summary points go in `## Summary` as plain `-` bullets, and anything that reads like
+a todo or deadline goes in a `## Follow-ups` section right below it as an open
+checkbox `- [ ]` (the checkbox is the only signal — no `#follow-up` tag).
 `follow-ups.md` at the vault root runs a
 [Dataview](https://github.com/blacksmithgu/obsidian-dataview) query that lists
 every unchecked item across your notes; tick one off in its source note and it
